@@ -37,10 +37,46 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class ReservationCreate(BaseModel):
+    name: str
+    guests: int = 0
+    date: str = ""
+    time: str = ""
+    note: str = ""
+    message: str = ""
+
+class Reservation(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    guests: int = 0
+    date: str = ""
+    time: str = ""
+    note: str = ""
+    message: str = ""
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
     return {"message": "Hello World"}
+
+@api_router.post("/reservations", response_model=Reservation)
+async def create_reservation(input: ReservationCreate):
+    obj = Reservation(**input.model_dump())
+    doc = obj.model_dump()
+    doc['created_at'] = doc['created_at'].isoformat()
+    await db.reservations.insert_one(doc)
+    return obj
+
+@api_router.get("/reservations", response_model=List[Reservation])
+async def get_reservations():
+    items = await db.reservations.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
+    for it in items:
+        if isinstance(it.get('created_at'), str):
+            it['created_at'] = datetime.fromisoformat(it['created_at'])
+    return items
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):

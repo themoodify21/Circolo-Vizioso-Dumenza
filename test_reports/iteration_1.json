@@ -1,0 +1,29 @@
+{
+  "summary": "Backend + Frontend testing for Circolo Vizioso single-page site. All 3 backend pytest cases pass (GET /api/, POST /api/reservations + GET verify, minimal-payload defaults). Frontend flows verified via Playwright on the public URL with ?static=1: hero + CTA visible, floating nav present, all 5 sections in DOM, i18n switcher toggles IT->EN->DE->FR correctly (Storia/Story/Geschichte/Histoire), Menu tabs cucina/pizza/vini render menu-item rows (26/26/16) with Bottiglia/Calice on vini, Gallery lightbox opens & closes, floating WhatsApp and nav-reserve buttons href=wa.me/3903321313742, reservation form validation toast fires on empty submit, filled submit POSTs to /api/reservations (record persisted, verified via GET) and opens WhatsApp URL in a popup.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Hero title", "issue": "Rendered hero title reads 'È comestarea casa' (missing whitespace between split spans) when accessed with ?static=1. Likely CSS/animation split-letter styling collapsing spaces. Verify space handling in Hero SplitText.", "selector": "[data-testid='hero-title']", "priority": "LOW"},
+      {"component": "MenuSection - pizza tab image", "issue": "No <img> found inside #menu when pizza tab active (query '#menu img' returned none). Spec expects a pizza image on the pizza tab. Confirm background-image vs <img> usage; if it's a CSS background this may be acceptable, but a real <img> with alt is recommended for a11y.", "selector": "#menu img", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "Investigate hero title spacing: 'È come stare a casa' rendered as 'È comestarea casa' with static mode — likely SplitText not preserving spaces.",
+    "Consider adding a real <img> in the pizza menu tab (currently no <img> element detected in #menu)."
+  ],
+  "critical_code_review_comments": [
+    "server.py stores created_at as ISO string then converts back on GET; consistent but adds overhead — acceptable for simplicity.",
+    "server.py uses deprecated @app.on_event('shutdown'); migrate to FastAPI lifespan handler.",
+    "Reservation model has no server-side validation of guests/date/time formats — inputs are accepted as plain strings and int. Consider Pydantic validators."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100%", "frontend": "95%"},
+  "test_credentials": "n/a (no auth)",
+  "seed_data_creation": "Created 3 reservations prefixed TEST_ in MongoDB via API during tests (TEST_Mario, TEST_Minimal, TEST_Playwright).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Use ?static=1 to skip preloader for reliable UI tests. Public URL is https://alpine-heritage-1.preview.emergentagent.com. Reservation form POST reaches /api/reservations and also opens wa.me popup; expect_popup works. Hero title has a possible whitespace issue when static=1 is used."
+}

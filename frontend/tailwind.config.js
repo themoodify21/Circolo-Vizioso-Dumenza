@@ -7,12 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
-      },
       colors: {
+        mattone: '#8E3721',
+        terracotta: '#A84A2D',
+        crema: '#F6F1E8',
+        beige: '#E8D9C3',
+        marrone: '#2F211A',
+        nero: '#1B1A18',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -45,36 +46,27 @@ module.exports = {
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))'
-        }
+        ring: 'hsl(var(--ring))'
+      },
+      fontFamily: {
+        serif: ['"Bodoni Moda"', 'serif'],
+        sans: ['"Cabinet Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        script: ['"Bodoni Moda"', 'serif'],
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)'
       },
       keyframes: {
-        'accordion-down': {
-          from: {
-            height: '0'
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)'
-          }
-        },
-        'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)'
-          },
-          to: {
-            height: '0'
-          }
-        }
+        'accordion-down': { from: { height: '0' }, to: { height: 'var(--radix-accordion-content-height)' } },
+        'accordion-up': { from: { height: 'var(--radix-accordion-content-height)' }, to: { height: '0' } },
+        marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        marquee: 'marquee 40s linear infinite',
       }
     }
   },
