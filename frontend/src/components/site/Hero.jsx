@@ -43,7 +43,7 @@ export default function Hero() {
 
       {/* Main tagline */}
       <motion.div style={{ y: yText, opacity }} className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-        <h1 className="font-serif font-medium leading-[0.86] text-crema" data-testid="hero-title">
+        <h1 className="font-serif font-medium leading-[0.86] text-crema" data-testid="hero-title" aria-label={`${t.hero.line1} ${t.hero.line2} ${t.hero.line3}`}>
           <MaskLines
             lines={[t.hero.line1, t.hero.line2, t.hero.line3]}
             lineClass="text-[19vw] italic sm:text-[15vw] lg:text-[11rem]"
