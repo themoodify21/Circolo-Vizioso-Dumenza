@@ -1,0 +1,143 @@
+{
+  "app_name": "Circolo Vizioso di Dumenza",
+  "app_type": "hybrid_fullstack",
+  "theme_preference": "light",
+  "overall_vibe": "Moody, tactile, sophisticated, rooted in local alpine heritage. High-fashion editorial approach replacing standard restaurant templates.",
+  "typography": {
+    "primary_headings": {
+      "font_family": "Bodoni Moda, serif",
+      "weights": ["400", "500", "700", "italic"],
+      "usage": "H1, H2, large editorial quotes, manifesto chapter titles.",
+      "guideline": "Use high contrast sizing (e.g. text-6xl to 8xl for hero, tight tracking, leading-none)."
+    },
+    "secondary_body": {
+      "font_family": "Cabinet Grotesk, sans-serif",
+      "weights": ["300", "400", "500"],
+      "usage": "Body text, navigation, buttons, small captions.",
+      "guideline": "Clean, humanist but slightly idiosyncratic sans to contrast with the sharp serif. No generic fonts like Inter/Roboto."
+    },
+    "hierarchy_rules": "Extreme contrast between massive headings and small, readable body copy (e.g., jump from text-6xl to text-base). Asymmetrical alignments."
+  },
+  "colors": {
+    "mattone": {
+      "hex": "#8E3721",
+      "role": "Dominant Brand Identity (impactful headers, immersive hero containers, structural footers, statement event modules)"
+    },
+    "terracotta": {
+      "hex": "#A84A2D",
+      "role": "Dynamic Interactions (hover states, interactive content cards, minimalist iconography)"
+    },
+    "crema": {
+      "hex": "#F6F1E8",
+      "role": "Warm Organic Canvas (replaces pure white for long scrolling sections and digital menus, tactile paper feel)"
+    },
+    "beige": {
+      "hex": "#E8D9C3",
+      "role": "Structural Dividers (ultra-thin delicate boundary lines between editorial sections, e.g., border-beige)"
+    },
+    "marrone_scuro": {
+      "hex": "#2F211A",
+      "role": "Editorial Typography (high-impact titles, primary typographic focal points)"
+    },
+    "nero_caldo": {
+      "hex": "#1B1A18",
+      "role": "Soft Contrast (replaces pure black for refined low-glare body contrast)"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Generous Spacing Philosophy (p-12 to p-32). Extreme asymmetry, breaking the standard grid.",
+    "layout_modes": {
+      "editorial_split": "Split-screen layouts where typography breathes on one side (Crema bg) next to cinematic high-contrast imagery on the other.",
+      "masonry": "Overlapping asymmetric image grids for galleries.",
+      "dividers": "Use ultra-thin borders using the Beige (#E8D9C3) color to separate sections without heavy blocks."
+    }
+  },
+  "motion_and_interactions": {
+    "scrolling": "Smooth momentum scroll using `lenis`. High-end feel.",
+    "cursor": "Custom slow-inertia cursor (Framer Motion) replacing default pointer.",
+    "micro_interactions": "Hover states trigger subtle shifts in background warmth (e.g., Crema fading slightly into a warm amber glow).",
+    "scroll_reveals": "Framer-motion scroll reveals, parallax hero moment, on-load masked line-by-line text reveal for the kinetic hero."
+  },
+  "textures_and_visuals": {
+    "lighting": "Deep shadows, warm amber glows reminiscent of string lights at dusk. Use radial gradients or blurred drop-shadows with Terracotta/Mattone tones.",
+    "textures": "Incorporate subtle grain/noise overlays to simulate tactile paper or wood grain.",
+    "ui_elements": "No pure whites or pure blacks. All borders must use Beige (#E8D9C3)."
+  },
+  "components": {
+    "navigation": {
+      "style": "Floating semi-transparent pill navigation. Glassmorphism but warm (Crema with backdrop-blur-md and a 1px solid Beige border). NO completely transparent backgrounds.",
+      "features": "Contains Logo, 3-5 links, Language Switcher (IT/EN/DE/FR)."
+    },
+    "hero": {
+      "style": "Kinetic hero. Full-screen in Mattone or high-contrast image overlay.",
+      "features": "Signature on-load masked line-by-line text reveal (tagline 'È come stare a casa') framed by delicate beige lines."
+    },
+    "menu_section": {
+      "style": "Crema background, multi-column editorial typography. Looks like a high-fashion magazine spread.",
+      "features": "Pizzas, cucina, takeaway indicators. Use Marrone scuro for section titles."
+    },
+    "storia_manifesto": {
+      "style": "Numbered chapters (01 Tradizione, 02 Serietà, 03 Punto iconico). Massive typography for numbers.",
+      "layout": "Asymmetrical text blocks alongside historic imagery."
+    },
+    "events_blocks": {
+      "style": "Mattone (#8E3721) background blocks with Crema text.",
+      "features": "Live music, karaoke, themed nights."
+    },
+    "gallery": {
+      "style": "Borderless masonry grid + lightbox for expanding images.",
+      "features": "Hover states on images create a subtle scale effect (1.05) with darkened overlay."
+    },
+    "marquee": {
+      "style": "Slow editorial marquee. Serif typography, massive scale, slow continuous drift.",
+      "features": "Use `react-fast-marquee`."
+    },
+    "reservation_widget": {
+      "style": "WhatsApp deep-link button fixed at bottom-right or in navigation. Terracotta background, Crema icon."
+    }
+  },
+  "pages": {
+    "Homepage": "The core experience. Combines Hero, Story intro, Menu highlights, Events preview, and Gallery. All smoothly connected via Lenis scrolling."
+  },
+  "image_urls": {
+    "hero_historic_building": {
+      "url": "https://images.unsplash.com/photo-1596006153654-4a36010e2f45?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwzfHxoaXN0b3JpYyUyMGFscGluZSUyMGl0YWxpYW4lMjBidWlsZGluZyUyMHR3aWxpZ2h0fGVufDB8fHx8MTc4NTU4Nzk3N3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Historic alpine Italian building at twilight. Use as parallax hero background."
+    },
+    "neapolitan_pizza_1": {
+      "url": "https://images.pexels.com/photos/35760009/pexels-photo-35760009.jpeg",
+      "description": "Neapolitan pizza baking in rustic wood-fired oven. Use for Menu highlights."
+    },
+    "neapolitan_pizza_2": {
+      "url": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
+      "description": "Round cooked pizza. Use for Menu."
+    },
+    "ambiance_string_lights": {
+      "url": "https://images.unsplash.com/photo-1566889110153-0a27cec38483?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwxfHxtb29keSUyMHdhcm0lMjByZXN0YXVyYW50JTIwc3RyaW5nJTIwbGlnaHRzJTIwZHVza3xlbnwwfHx8fDE3ODU1ODc5Nzd8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Moody warm string lights at dusk. Use for ambiance/gallery sections."
+    },
+    "live_music_event": {
+      "url": "https://images.unsplash.com/photo-1507901747481-84a4f64fda6d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwzfHxsaXZlJTIwbXVzaWMlMjBpbnRpbWF0ZSUyMGRhcmslMjB2ZW51ZXxlbnwwfHx8fDE3ODU1ODc5Nzh8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Live music intimate dark venue. Use for Eventi section blocks."
+    },
+    "wood_texture": {
+      "url": "https://images.pexels.com/photos/6373386/pexels-photo-6373386.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Rustic dark wood grain texture. Can be used as a low opacity overlay or section background."
+    }
+  },
+  "accessibility": {
+    "testing": "All interactive and key informational elements MUST include a `data-testid` attribute (kebab-case, role-based).",
+    "contrast": "Ensure text over images uses proper overlays for APCA/WCAG contrast minimums. Nero Caldo text on Crema bg is perfect."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "DO NOT use Inter, Roboto, or generic sans-serifs for headings. Follow typography guidelines strictly.",
+    "Create depth through layered design elements with z-index hierarchy and generous spacing (p-12 to p-32).",
+    "Use glass-morphism effects with backdrop filters (12-24px blur), but never pure transparent backgrounds for text-bearing surfaces.",
+    "NEVER use AI assistant Emoji characters for icons.",
+    "Every interaction needs micro-animations (hover states, transitions, parallax effects, entrance animations). Static = dead.",
+    "DO NOT center align the app container. Respect optical alignment and editorial layouts.",
+    "DO NOT apply universal transition (`transition: all`), as it breaks transforms.",
+    "All interactive elements MUST include `data-testid`."
+  ]
+}
