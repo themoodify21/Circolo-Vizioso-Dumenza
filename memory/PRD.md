@@ -32,7 +32,11 @@ Bespoke, immersive, high-fashion **editorial** website for *Circolo Vizioso di D
 - **P1** Owner to indicate the ONE event photo that stays in colour → set `color:true` in `EVENT_IMAGES`.
 - **P2** Owner Facebook page exact URL (placeholder facebook.com/circoloviziosodm in use).
 
-## Update 2026-08-05 (iteration 2)
+## Update 2026-08-05 (iteration 3)
+- Added react-router (`/` Home, `/storia` full Story page). Story page shows the complete heritage text verbatim (3 blocks) with editorial drop-caps + back links, scrolls to top on open.
+- Homepage Storia section now a teaser (intro) + "Continua a leggere" button → `/storia`.
+- Footer is now a full-viewport closing section (min-h-screen) on both pages.
+- Verified by testing agent: frontend 100%, no bugs (only a non-blocking Lenis/framer console warning).
 - Marquee: transparent background + site sans font (coherent).
 - Storia manifesto: removed 01/02/03 numbering → discreet dash markers.
 - Eventi: static grid replaced by autonomous auto-rotating carousel of 5 uploaded event photos (B&W via grayscale filter; per-photo `color` flag for the future colour exception).
