@@ -27,7 +27,16 @@ Bespoke, immersive, high-fashion **editorial** website for *Circolo Vizioso di D
 - Multilingual across all sections; verified end-to-end (backend 100%, frontend 95%).
 
 ## Backlog / Next
-- **P1** Real WhatsApp mobile number (currently uses landline +39 0332 1313 742 from brand material) — confirm with owner.
-- **P1** Hero cinematic video option (owner to provide).
-- **P2** CMS/admin (“Register”) to edit menu & events; email routing to primeasrl@gmail.com (“Tim System” gestionale) when ready.
-- **P2** SEO/OG images, sitemap; favicon polish.
+- **P0 (TeamSystem Cassa in Cloud)**: feasible but BLOCKED on credentials — need the restaurant's Cassa in Cloud account + API key/merchant ID (and confirmation their plan exposes an API for reservations/notifications). Backend already stores each reservation (`/api/reservations`) so forwarding can be plugged in once access is provided.
+- **P1** New WhatsApp mobile number for reservations (owner to send) — change `whatsappNumber` in `lib/config.js`.
+- **P1** Owner to indicate the ONE event photo that stays in colour → set `color:true` in `EVENT_IMAGES`.
+- **P2** Owner Facebook page exact URL (placeholder facebook.com/circoloviziosodm in use).
+
+## Update 2026-08-05 (iteration 2)
+- Marquee: transparent background + site sans font (coherent).
+- Storia manifesto: removed 01/02/03 numbering → discreet dash markers.
+- Eventi: static grid replaced by autonomous auto-rotating carousel of 5 uploaded event photos (B&W via grayscale filter; per-photo `color` flag for the future colour exception).
+- Reservations: added "Chiama per riservare" button (tel: landline …742) alongside WhatsApp CTA.
+- Social: added Facebook next to Instagram in contact section + footer.
+- Opening hours updated everywhere (IT/EN/DE/FR): closed only on Wednesday.
+- Verified by testing agent: frontend 100%, no bugs.

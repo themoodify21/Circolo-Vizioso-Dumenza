@@ -26,7 +26,7 @@ export default function EventsCarousel() {
       setIndex((i) => (i + 1) % n);
     }, AUTOPLAY_MS);
     return () => clearInterval(id);
-  }, [n, index]);
+  }, [n]);
 
   const current = EVENT_IMAGES[index];
 
