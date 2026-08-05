@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { MapPin, Phone, Mail, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import { useLang } from "../../i18n/LanguageContext";
-import { CONTACT, whatsappLink, IMAGES } from "../../lib/config";
+import { CONTACT, whatsappLink, phoneTel, IMAGES } from "../../lib/config";
 import { Reveal, MaskLines } from "./Reveal";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -59,6 +59,25 @@ export default function Contatti() {
               {c.body}
             </Reveal>
 
+            <Reveal delay={0.18} className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noreferrer"
+                data-testid="contact-whatsapp-button"
+                className="rounded-full bg-terracotta px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-crema transition-colors duration-300 hover:bg-mattone"
+              >
+                {c.whatsapp}
+              </a>
+              <a
+                href={phoneTel()}
+                data-testid="contact-call-reserve-button"
+                className="rounded-full border border-mattone px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-mattone transition-colors duration-300 hover:bg-mattone hover:text-crema"
+              >
+                {c.callReserve}
+              </a>
+            </Reveal>
+
             <Reveal delay={0.2} className="mt-10 space-y-4">
               <a href={CONTACT.mapsUrl} target="_blank" rel="noreferrer" className="flex items-start gap-3 text-sm text-nero/80 hover:text-terracotta" data-testid="contact-address">
                 <MapPin className="mt-0.5 h-4 w-4 text-terracotta" strokeWidth={1.6} />
@@ -72,9 +91,13 @@ export default function Contatti() {
                 <Mail className="h-4 w-4 text-terracotta" strokeWidth={1.6} />
                 {CONTACT.email}
               </a>
-              <a href={CONTACT.instagramUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-nero/80 hover:text-terracotta">
+              <a href={CONTACT.instagramUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-nero/80 hover:text-terracotta" data-testid="contact-instagram">
                 <Instagram className="h-4 w-4 text-terracotta" strokeWidth={1.6} />
                 @{CONTACT.instagram}
+              </a>
+              <a href={CONTACT.facebookUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-nero/80 hover:text-terracotta" data-testid="contact-facebook">
+                <Facebook className="h-4 w-4 text-terracotta" strokeWidth={1.6} />
+                {CONTACT.facebook}
               </a>
               <p className="pt-3 text-xs uppercase tracking-[0.15em] text-nero/50">{c.hours}</p>
             </Reveal>

@@ -46,10 +46,8 @@ export default function Storia() {
           {s.chapters.map((c, i) => (
             <Reveal key={c.n} delay={i * 0.05}>
               <div className="group grid grid-cols-1 items-start gap-6 border-t border-beige py-10 hover-warm hover:bg-beige/30 sm:grid-cols-12 sm:gap-8 sm:px-4">
-                <div className="sm:col-span-2">
-                  <span className="font-serif text-6xl italic text-terracotta/40 transition-colors duration-500 group-hover:text-terracotta sm:text-7xl">
-                    {c.n}
-                  </span>
+                <div className="flex items-center pt-2 sm:col-span-2 sm:pt-4">
+                  <span className="h-px w-10 bg-terracotta/50 transition-all duration-500 group-hover:w-20 group-hover:bg-terracotta" />
                 </div>
                 <h3 className="font-serif text-3xl text-marrone sm:col-span-4 sm:text-4xl">{c.title}</h3>
                 <p className="text-base font-light leading-relaxed text-nero/75 sm:col-span-6">{c.body}</p>

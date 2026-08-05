@@ -1,0 +1,20 @@
+{
+  "summary": "Frontend-only validation of newly added changes for Circolo Vizioso di Dumenza. All 7 required checks pass: (1) EventsCarousel auto-advances (~4s), prev/next arrows and dots work, 5 slides using /events/ev1..ev5.jpeg, grayscale filter applied via inline style. (2) contact-call-reserve-button href=tel:+3903321313742 with label 'Chiama per riservare'; contact-whatsapp-button href=https://wa.me/3903321313742. (3) Facebook links present in both contact section (data-testid=contact-facebook) and footer (data-testid=footer-facebook) pointing to facebook.com/circoloviziosodm; Instagram links still present. (4) Opening hours: IT 'Chiuso il mercoledì', EN 'Closed on Wednesdays', DE 'Mittwochs geschlossen', FR 'Fermé le mercredi'; no Monday/lunedì present. (5) Marquee has transparent background (rgba(0,0,0,0)), no top/bottom borders (0px), font Cabinet Grotesk sans, uppercase, animation running. (6) Storia manifesto chapters no longer contain '01/02/03' text — only dash markers (h-px w-10 bg-terracotta). (7) Regression: language switcher translates the whole page (IT/EN/DE/FR verified), menu tabs cucina/pizza/vini clickable, gallery lightbox opens, reservation form POST /api/reservations returned 200 and WhatsApp popup opened successfully.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/test_reports/iteration_2.json"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "EventsCarousel useEffect depends on [n, index] which resets the 4s autoplay timer every time the index changes (including from autoplay itself). This still works because the interval fires, index updates, timer resets, then a new interval starts — so autoplay continues, but the effective interval remains ~4s. Consider dropping `index` from deps and using a functional setState updater (already used) so the timer isn't recreated on every tick; also prev/next clicks would then not reset autoplay in a jittery way."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "not tested (per request)", "frontend": "100%"},
+  "seed_data_creation": "One TEST reservation POSTed to /api/reservations (name='TEST Mario', date=2026-06-15, time=20:00) as part of integration regression.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Language switcher uses data-testid=language-switcher-button + lang-option-{it|en|de|fr} (NOT lang-{code}). Hours text is CSS uppercased, so use case-insensitive matching. Carousel uses AnimatePresence mode=popLayout, so during transition BOTH exiting and entering slide-N testids may co-exist briefly (~1s). Reservation form POST works; WhatsApp opens as popup after."
+}

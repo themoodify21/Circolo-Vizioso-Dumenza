@@ -1,4 +1,5 @@
 import React from "react";
+import { Instagram, Facebook } from "lucide-react";
 import { useLang } from "../../i18n/LanguageContext";
 import { CONTACT } from "../../lib/config";
 
@@ -21,8 +22,15 @@ export default function Footer() {
             <span className="mx-2">·</span>
             <a href={`mailto:${CONTACT.email}`} className="hover:text-crema">{CONTACT.email}</a>
           </div>
-          <div className="sm:text-right">
-            <a href={CONTACT.instagramUrl} target="_blank" rel="noreferrer" className="hover:text-crema">@{CONTACT.instagram}</a>
+          <div className="flex items-center justify-center gap-4 sm:justify-end">
+            <a href={CONTACT.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram" data-testid="footer-instagram" className="flex items-center gap-2 hover:text-crema">
+              <Instagram className="h-4 w-4" strokeWidth={1.6} />
+              <span className="hidden sm:inline">@{CONTACT.instagram}</span>
+            </a>
+            <a href={CONTACT.facebookUrl} target="_blank" rel="noreferrer" aria-label="Facebook" data-testid="footer-facebook" className="flex items-center gap-2 hover:text-crema">
+              <Facebook className="h-4 w-4" strokeWidth={1.6} />
+              <span className="hidden sm:inline">Facebook</span>
+            </a>
           </div>
         </div>
 

@@ -11,9 +11,25 @@ export const CONTACT = {
   email: "primeasrl@gmail.com",
   instagram: "circoloviziosodm",
   instagramUrl: "https://instagram.com/circoloviziosodm",
+  facebook: "circoloviziosodm",
+  facebookUrl: "https://facebook.com/circoloviziosodm",
   website: "www.ilcircolovizioso.it",
   mapsUrl: "https://maps.google.com/?q=Via+XX+Settembre+3+21010+Dumenza",
 };
+
+export function phoneTel() {
+  return `tel:${CONTACT.phoneDisplay.replace(/\s/g, "")}`;
+}
+
+// Event gallery photos (uploaded). Rendered black & white via `color:false`.
+// Set `color:true` on the one photo that should stay in colour (owner will indicate).
+export const EVENT_IMAGES = [
+  { src: "/events/ev1.jpeg", color: false, label: "Al bancone" },
+  { src: "/events/ev2.jpeg", color: false, label: "Spillatura" },
+  { src: "/events/ev3.jpeg", color: false, label: "Grigliata" },
+  { src: "/events/ev4.jpeg", color: false, label: "Birra alla spina" },
+  { src: "/events/ev5.jpeg", color: false, label: "Sulla piastra" },
+];
 
 export function whatsappLink(message) {
   const base = `https://wa.me/${CONTACT.whatsappNumber}`;

@@ -1,8 +1,9 @@
 import React from "react";
 import { Music, Mic2, Sparkles, PartyPopper } from "lucide-react";
 import { useLang } from "../../i18n/LanguageContext";
-import { IMAGES, whatsappLink } from "../../lib/config";
+import { whatsappLink } from "../../lib/config";
 import { Reveal, MaskLines } from "./Reveal";
+import EventsCarousel from "./EventsCarousel";
 
 const icons = [Music, Mic2, Sparkles, PartyPopper];
 
@@ -29,19 +30,9 @@ export default function Eventi() {
           </Reveal>
         </div>
 
-        {/* image band */}
+        {/* auto-rotating events carousel */}
         <Reveal delay={0.1} className="mt-16">
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {[IMAGES.liveGuitar, IMAGES.stringLights, IMAGES.acousticGuitar, IMAGES.stringLights2].map((src, i) => (
-              <div key={i} className="group overflow-hidden rounded-sm">
-                <img
-                  src={src}
-                  alt=""
-                  className="aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
+          <EventsCarousel />
         </Reveal>
 
         {/* event type blocks */}
