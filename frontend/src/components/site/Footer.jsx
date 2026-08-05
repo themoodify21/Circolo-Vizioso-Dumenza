@@ -7,8 +7,9 @@ export default function Footer() {
   const { t } = useLang();
   const f = t.footer;
   return (
-    <footer className="relative overflow-hidden bg-mattone pt-20 pb-10 text-crema" data-testid="footer">
-      <div className="mx-auto max-w-7xl px-6">
+    <footer className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-mattone py-20 text-crema" data-testid="footer">
+      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[60vh] w-[60vh] -translate-x-1/2 rounded-full bg-terracotta/25 blur-[140px]" />
+      <div className="relative mx-auto w-full max-w-7xl px-6">
         <div className="flex flex-col items-center border-b border-crema/15 pb-14 text-center">
           <img src="/logo-white.png" alt="Circolo Vizioso" className="h-16 w-auto sm:h-20" />
           <p className="mt-8 font-serif text-4xl italic sm:text-6xl">{f.tagline}</p>

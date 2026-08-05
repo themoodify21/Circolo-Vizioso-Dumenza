@@ -50,6 +50,9 @@ export const translations = {
       pizzaTitle: "La nostra pizza",
       pizzaBody:
         "La nostra pizza nasce da un impasto lavorato con cura, lasciato maturare lentamente per garantire leggerezza, fragranza e alta digeribilità. Cotta nel forno a legna, nel perfetto equilibrio tra tradizione e passione.",
+      readMore: "Continua a leggere la storia",
+      pageKicker: "Dal 1910 · Dumenza",
+      back: "Torna alla home",
     },
     menu: {
       label: "Menù estivo",
@@ -119,6 +122,9 @@ export const translations = {
       kitchenBody: "We believe in cooking that tastes of home. Our dishes are born from respect for local tradition, a passion for the table and the wish to make every guest part of the family.",
       pizzaTitle: "Our pizza",
       pizzaBody: "Our pizza starts from a carefully worked dough, slowly matured for lightness, fragrance and high digestibility. Baked in the wood-fired oven, in perfect balance between tradition and passion.",
+      readMore: "Continue reading the story",
+      pageKicker: "Since 1910 · Dumenza",
+      back: "Back to home",
     },
     menu: {
       label: "Summer menu",
@@ -185,6 +191,9 @@ export const translations = {
       kitchenBody: "Wir glauben an Küche, die nach Zuhause schmeckt. Unsere Gerichte entstehen aus Respekt vor der lokalen Tradition, aus Leidenschaft für die Tafel und dem Wunsch, jeden Gast zur Familie zu machen.",
       pizzaTitle: "Unsere Pizza",
       pizzaBody: "Unsere Pizza beginnt mit einem sorgfältig gearbeiteten Teig, langsam gereift für Leichtigkeit, Duft und hohe Bekömmlichkeit. Gebacken im Holzofen, in perfekter Balance aus Tradition und Leidenschaft.",
+      readMore: "Die Geschichte weiterlesen",
+      pageKicker: "Seit 1910 · Dumenza",
+      back: "Zurück zur Startseite",
     },
     menu: {
       label: "Sommermenü",
@@ -251,6 +260,9 @@ export const translations = {
       kitchenBody: "Nous croyons à une cuisine qui a le goût de la maison. Nos plats naissent du respect des traditions locales, de la passion de la table et de l'envie de faire de chaque hôte un membre de la famille.",
       pizzaTitle: "Notre pizza",
       pizzaBody: "Notre pizza part d'une pâte travaillée avec soin, lentement maturée pour la légèreté, le parfum et une haute digestibilité. Cuite au four à bois, dans un équilibre parfait entre tradition et passion.",
+      readMore: "Continuer la lecture de l'histoire",
+      pageKicker: "Depuis 1910 · Dumenza",
+      back: "Retour à l'accueil",
     },
     menu: {
       label: "Menu d'été",

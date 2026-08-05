@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLang } from "../../i18n/LanguageContext";
 import { IMAGES } from "../../lib/config";
@@ -33,6 +34,16 @@ export default function Storia() {
             </h2>
             <Reveal delay={0.2} className="mt-10 max-w-xl text-base font-light leading-relaxed text-nero/80">
               {s.intro}
+            </Reveal>
+            <Reveal delay={0.28} className="mt-8">
+              <Link
+                to="/storia"
+                data-testid="storia-read-more"
+                className="group inline-flex items-center gap-3 rounded-full border border-mattone px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-mattone transition-colors duration-300 hover:bg-mattone hover:text-crema"
+              >
+                {s.readMore}
+                <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </Link>
             </Reveal>
           </div>
           <div className="lg:col-span-5">
