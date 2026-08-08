@@ -7,7 +7,7 @@ export const CONTACT = {
   since: "1910",
   address: "Via XX Settembre 3, 21010 Dumenza (VA)",
   phoneDisplay: "+39 0332 1313 742",
-  whatsappNumber: "3903321313742",
+  whatsappNumber: "393899074966",
   email: "primeasrl@gmail.com",
   instagram: "circoloviziosodm",
   instagramUrl: "https://instagram.com/circoloviziosodm",
