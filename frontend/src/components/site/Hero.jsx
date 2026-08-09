@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useLang } from "../../i18n/LanguageContext";
-import { IMAGES, whatsappLink, CONTACT } from "../../lib/config";
+import { IMAGES, CONTACT } from "../../lib/config";
 import { MaskLines } from "./Reveal";
 import { IS_STATIC } from "../../lib/static";
 
@@ -59,9 +59,7 @@ export default function Hero() {
           {t.hero.sub}
         </motion.p>
         <motion.a
-          href={whatsappLink()}
-          target="_blank"
-          rel="noreferrer"
+          href="#contatti"
           initial={IS_STATIC ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 1 }}

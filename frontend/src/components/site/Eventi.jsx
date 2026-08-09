@@ -1,9 +1,9 @@
 import React from "react";
 import { Music, Mic2, Sparkles, PartyPopper } from "lucide-react";
 import { useLang } from "../../i18n/LanguageContext";
-import { whatsappLink } from "../../lib/config";
+import { whatsappLink, EVENT_IMAGES } from "../../lib/config";
 import { Reveal, MaskLines } from "./Reveal";
-import EventsCarousel from "./EventsCarousel";
+import { CardStack } from "../ui/card-stack";
 
 const icons = [Music, Mic2, Sparkles, PartyPopper];
 
@@ -30,9 +30,9 @@ export default function Eventi() {
           </Reveal>
         </div>
 
-        {/* auto-rotating events carousel */}
+        {/* stacked auto-advancing events carousel */}
         <Reveal delay={0.1} className="mt-16">
-          <EventsCarousel />
+          <CardStack items={EVENT_IMAGES} autoAdvance intervalMs={2600} pauseOnHover showDots />
         </Reveal>
 
         {/* event type blocks */}

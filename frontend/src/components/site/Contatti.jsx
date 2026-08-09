@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import { useLang } from "../../i18n/LanguageContext";
-import { CONTACT, whatsappLink, phoneTel, IMAGES } from "../../lib/config";
+import { CONTACT, whatsappLink, phoneTel, IMAGES, CAPACITY } from "../../lib/config";
 import { Reveal, MaskLines } from "./Reveal";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -11,15 +11,17 @@ const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 export default function Contatti() {
   const { t } = useLang();
   const c = t.contact;
-  const [form, setForm] = useState({ name: "", guests: "2", date: "", time: "", note: "" });
+  const [form, setForm] = useState({ name: "", guests: "2", area: "interno", date: "", time: "", note: "" });
   const [loading, setLoading] = useState(false);
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const maxGuests = CAPACITY[form.area];
 
   const buildMessage = () =>
     c.msgTemplate
       .replace("{name}", form.name || "-")
       .replace("{guests}", form.guests || "-")
+      .replace("{area}", c.form[form.area] || form.area)
       .replace("{date}", form.date || "-")
       .replace("{time}", form.time || "-")
       .replace("{note}", form.note || "-");
@@ -28,6 +30,12 @@ export default function Contatti() {
     e.preventDefault();
     if (!form.name || !form.date || !form.time) {
       toast.error("Nome, data e ora sono richiesti / Name, date & time required");
+      return;
+    }
+    if (Number(form.guests) > maxGuests) {
+      toast.error(
+        c.form.maxGuests.replace("{max}", maxGuests).replace("{area}", c.form[form.area])
+      );
       return;
     }
     setLoading(true);
@@ -76,6 +84,23 @@ export default function Contatti() {
               >
                 {c.callReserve}
               </a>
+              <a
+                href={phoneTel()}
+                data-testid="contact-chiamaci-button"
+                className="rounded-full border border-mattone px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-mattone transition-colors duration-300 hover:bg-mattone hover:text-crema"
+              >
+                {c.chiamaci}
+              </a>
+            </Reveal>
+
+            <Reveal delay={0.22} className="mt-4">
+              <p className="text-sm font-light text-nero/70" data-testid="contact-events-note">
+                {c.eventsNote.split("{phone}")[0]}
+                <a href={phoneTel()} className="font-medium text-mattone underline underline-offset-4 hover:text-terracotta">
+                  {CONTACT.phoneDisplay}
+                </a>
+                {c.eventsNote.split("{phone}")[1]}
+              </p>
             </Reveal>
 
             <Reveal delay={0.2} className="mt-10 space-y-4">
@@ -113,8 +138,32 @@ export default function Contatti() {
                     <input value={form.name} onChange={set("name")} data-testid="input-name" className="cv-input" />
                   </Field>
                   <Field label={c.form.guests} testid="res-guests">
-                    <input type="number" min="1" value={form.guests} onChange={set("guests")} data-testid="input-guests" className="cv-input" />
+                    <input type="number" min="1" max={maxGuests} value={form.guests} onChange={set("guests")} data-testid="input-guests" className="cv-input" />
                   </Field>
+                </div>
+
+                <div data-testid="res-area">
+                  <span className="mb-2 block text-[0.65rem] uppercase tracking-[0.2em] text-crema/50">{c.form.area}</span>
+                  <div className="flex gap-2">
+                    {["interno", "esterno"].map((z) => (
+                      <button
+                        type="button"
+                        key={z}
+                        onClick={() => setForm((f) => ({ ...f, area: z }))}
+                        data-testid={`area-${z}`}
+                        className={`flex-1 rounded-full border px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors duration-300 ${
+                          form.area === z
+                            ? "border-terracotta bg-terracotta text-crema"
+                            : "border-crema/25 text-crema/70 hover:border-crema/60"
+                        }`}
+                      >
+                        {c.form[z]} · {CAPACITY[z]}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="mt-2 text-[0.65rem] text-crema/45">
+                    {c.form.maxGuests.replace("{max}", maxGuests).replace("{area}", c.form[form.area])}
+                  </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <Field label={c.form.date} testid="res-date">

@@ -3,14 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLang } from "../../i18n/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { whatsappLink } from "../../lib/config";
 import { IS_STATIC } from "../../lib/static";
 
 const links = [
   { id: "#storia", key: "story" },
   { id: "#menu", key: "menu" },
   { id: "#eventi", key: "events" },
-  { id: "#foto", key: "gallery" },
   { id: "#contatti", key: "contact" },
 ];
 
@@ -68,9 +66,7 @@ export default function Nav() {
           <div className="flex items-center gap-4">
             <LanguageSwitcher tone={scrolled ? "dark" : "light"} />
             <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noreferrer"
+              href="#contatti"
               data-testid="nav-reserve-button"
               className="hidden rounded-full bg-terracotta px-5 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-crema transition-colors duration-300 hover:bg-mattone sm:inline-block"
             >
@@ -124,9 +120,7 @@ export default function Nav() {
             </ul>
             <div className="px-6 pt-10">
               <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noreferrer"
+                href="#contatti"
                 onClick={() => setOpen(false)}
                 className="inline-block rounded-full bg-crema px-8 py-3 text-sm font-semibold uppercase tracking-widest text-mattone"
               >

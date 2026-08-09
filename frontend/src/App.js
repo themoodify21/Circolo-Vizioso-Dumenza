@@ -12,7 +12,6 @@ import Marquee from "@/components/site/Marquee";
 import Storia from "@/components/site/Storia";
 import MenuSection from "@/components/site/MenuSection";
 import Eventi from "@/components/site/Eventi";
-import Gallery from "@/components/site/Gallery";
 import Contatti from "@/components/site/Contatti";
 import Footer from "@/components/site/Footer";
 import WhatsAppButton from "@/components/site/WhatsAppButton";
@@ -29,7 +28,6 @@ function Home() {
         <Storia />
         <MenuSection />
         <Eventi />
-        <Gallery />
         <Contatti />
       </main>
       <Footer />
