@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLang } from "../../i18n/LanguageContext";
@@ -6,7 +7,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { IS_STATIC } from "../../lib/static";
 
 const links = [
-  { id: "#storia", key: "story" },
+  { id: "/storia", key: "story", route: true },
   { id: "#menu", key: "menu" },
   { id: "#eventi", key: "events" },
   { id: "#contatti", key: "contact" },
@@ -50,15 +51,27 @@ export default function Nav() {
           <ul className="hidden items-center gap-7 lg:flex">
             {links.map((l) => (
               <li key={l.id}>
-                <a
-                  href={l.id}
-                  data-testid={`nav-link-${l.key}`}
-                  className={`text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-50 ${
-                    scrolled ? "text-marrone" : "text-crema"
-                  }`}
-                >
-                  {t.nav[l.key]}
-                </a>
+                {l.route ? (
+                  <Link
+                    to={l.id}
+                    data-testid={`nav-link-${l.key}`}
+                    className={`text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-50 ${
+                      scrolled ? "text-marrone" : "text-crema"
+                    }`}
+                  >
+                    {t.nav[l.key]}
+                  </Link>
+                ) : (
+                  <a
+                    href={l.id}
+                    data-testid={`nav-link-${l.key}`}
+                    className={`text-xs font-medium uppercase tracking-[0.16em] transition-opacity hover:opacity-50 ${
+                      scrolled ? "text-marrone" : "text-crema"
+                    }`}
+                  >
+                    {t.nav[l.key]}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -107,14 +120,25 @@ export default function Nav() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + i * 0.07 }}
                 >
-                  <a
-                    href={l.id}
-                    onClick={() => setOpen(false)}
-                    data-testid={`mobile-nav-link-${l.key}`}
-                    className="block border-b border-crema/15 py-4 font-serif text-4xl text-crema"
-                  >
-                    {t.nav[l.key]}
-                  </a>
+                  {l.route ? (
+                    <Link
+                      to={l.id}
+                      onClick={() => setOpen(false)}
+                      data-testid={`mobile-nav-link-${l.key}`}
+                      className="block border-b border-crema/15 py-4 font-serif text-4xl text-crema"
+                    >
+                      {t.nav[l.key]}
+                    </Link>
+                  ) : (
+                    <a
+                      href={l.id}
+                      onClick={() => setOpen(false)}
+                      data-testid={`mobile-nav-link-${l.key}`}
+                      className="block border-b border-crema/15 py-4 font-serif text-4xl text-crema"
+                    >
+                      {t.nav[l.key]}
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </ul>

@@ -5,10 +5,11 @@ import { useLang } from "../../i18n/LanguageContext";
 import { cucina, pizza, vini } from "../../data/menu";
 import { IMAGES } from "../../lib/config";
 import { Reveal, MaskLines } from "./Reveal";
+import { SECTION_LABELS, translateDesc } from "../../i18n/menuI18n";
 
 const DATASETS = { cucina, pizza, vini };
 
-function FoodRow({ it }) {
+function FoodRow({ it, lang }) {
   return (
     <div className="group flex items-baseline gap-3 py-3" data-testid="menu-item">
       <div className="min-w-0 flex-1">
@@ -18,7 +19,7 @@ function FoodRow({ it }) {
             {it.star && <span className="align-super text-[0.6em] text-terracotta">*</span>}
           </h4>
         </div>
-        {it.d && <p className="mt-0.5 text-sm font-light leading-snug text-nero/60">{it.d}</p>}
+        {it.d && <p className="mt-0.5 text-sm font-light leading-snug text-nero/60">{translateDesc(it.d, lang)}</p>}
       </div>
       <div className="flex-shrink-0 border-b border-dotted border-beige/0 font-sans text-sm tabular-nums text-nero/70">
         {it.p !== "—" ? `€ ${it.p}` : ""}
@@ -40,7 +41,7 @@ function WineRow({ it, bottle, glass }) {
 }
 
 export default function MenuSection() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const m = t.menu;
   const [tab, setTab] = useState("cucina");
   const data = DATASETS[tab];
@@ -106,7 +107,9 @@ export default function MenuSection() {
               {data.map((group) => (
                 <div key={group.section} className="mb-12">
                   <div className="mb-3 flex items-center gap-4">
-                    <h3 className="font-serif text-2xl italic text-mattone sm:text-3xl">{group.section}</h3>
+                    <h3 className="font-serif text-2xl italic text-mattone sm:text-3xl">
+                      {(SECTION_LABELS[group.section] && SECTION_LABELS[group.section][lang]) || group.section}
+                    </h3>
                     <span className="h-px flex-1 bg-beige" />
                     {group.wine && (
                       <span className="text-[0.65rem] uppercase tracking-widest text-nero/40">
@@ -119,7 +122,7 @@ export default function MenuSection() {
                       group.wine ? (
                         <WineRow key={i} it={it} bottle={m.bottle} glass={m.glass} />
                       ) : (
-                        <FoodRow key={i} it={it} />
+                        <FoodRow key={i} it={it} lang={lang} />
                       )
                     )}
                   </div>
