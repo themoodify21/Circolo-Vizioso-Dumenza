@@ -40,8 +40,7 @@ export function whatsappLink(message) {
 }
 
 export const IMAGES = {
-  heroVillage:
-    "https://images.unsplash.com/photo-1739193578627-cd49af05cd07?crop=entropy&cs=srgb&fm=jpg&q=85&w=2000",
+  heroVillage: "/hero-flame.webp",
   buildingWindows:
     "https://images.unsplash.com/photo-1651004314442-653e46dfc43c?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600",
   villageSquare:

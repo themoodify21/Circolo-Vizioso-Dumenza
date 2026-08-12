@@ -20,8 +20,8 @@ export default function Hero() {
       {/* Parallax background image */}
       <motion.div style={{ y: yImg, scale: scaleImg }} className="absolute inset-0">
         <img src={IMAGES.heroVillage} alt="" className="h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-mattone/55 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-nero/50 via-transparent to-nero/80" />
+        <div className="absolute inset-0 bg-mattone/25 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-b from-nero/45 via-nero/10 to-nero/85" />
         {/* amber glow like string lights */}
         <div className="absolute left-1/2 top-2/3 h-[60vh] w-[60vh] -translate-x-1/2 rounded-full bg-terracotta/25 blur-[120px]" />
       </motion.div>
