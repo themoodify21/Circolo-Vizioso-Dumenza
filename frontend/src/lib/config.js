@@ -24,6 +24,7 @@ export function phoneTel() {
 // Event gallery photos (uploaded). Rendered black & white via `color:false`.
 // Set `color:true` on the one photo that should stay in colour.
 export const EVENT_IMAGES = [
+  { id: 0, src: "/events/color.jpeg", imageSrc: "/events/color.jpeg", color: true, label: "Cin cin!", title: "Al Circolo", description: "Il sorriso del paese, una birra alla mano." },
   { id: 1, src: "/events/ev1.jpeg", imageSrc: "/events/ev1.jpeg", color: false, label: "Al bancone", title: "Serate al Circolo", description: "Il paese che si ritrova, un bicchiere alla volta." },
   { id: 2, src: "/events/ev2.jpeg", imageSrc: "/events/ev2.jpeg", color: false, label: "Spillatura", title: "Birra alla spina", description: "Selezione artigianale, sempre fresca." },
   { id: 3, src: "/events/ev3.jpeg", imageSrc: "/events/ev3.jpeg", color: false, label: "Grigliata", title: "Grigliate & feste", description: "Il profumo della brace nelle serate a tema." },
