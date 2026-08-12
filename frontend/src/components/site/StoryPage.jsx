@@ -34,7 +34,7 @@ export default function StoryPage() {
       {/* header */}
       <header className="relative flex min-h-[70vh] items-end overflow-hidden bg-mattone pt-20">
         <motion.img
-          src={IMAGES.buildingWindows}
+          src={IMAGES.circoloSunset}
           alt=""
           initial={{ scale: 1.15 }}
           animate={{ scale: 1 }}

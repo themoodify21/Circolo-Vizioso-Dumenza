@@ -47,7 +47,7 @@ export default function Storia() {
             </Reveal>
           </div>
           <div className="lg:col-span-5">
-            <Parallax src={IMAGES.buildingWindows} className="h-[380px] w-full rounded-sm sm:h-[520px]" />
+            <Parallax src={IMAGES.circoloSunset} className="h-[380px] w-full rounded-sm sm:h-[520px]" />
             <p className="mt-3 text-xs uppercase tracking-[0.2em] text-nero/50">Dumenza · Valdumentina</p>
           </div>
         </div>

@@ -19,7 +19,12 @@ export default function Hero() {
     <section id="top" ref={ref} className="relative h-[100svh] w-full overflow-hidden bg-nero" data-testid="hero">
       {/* Parallax background image */}
       <motion.div style={{ y: yImg, scale: scaleImg }} className="absolute inset-0">
-        <img src={IMAGES.heroVillage} alt="" className="h-full w-full object-contain object-center" />
+        <img
+          src={IMAGES.heroVillage}
+          aria-hidden
+          className="absolute inset-0 h-full w-full scale-125 object-cover opacity-55 blur-2xl"
+        />
+        <img src={IMAGES.heroVillage} alt="" className="relative h-full w-full object-contain object-center" />
         <div className="absolute inset-0 bg-gradient-to-b from-nero/40 via-transparent to-nero/70" />
         {/* amber glow like string lights */}
         <div className="absolute left-1/2 top-2/3 h-[60vh] w-[60vh] -translate-x-1/2 rounded-full bg-terracotta/25 blur-[120px]" />
