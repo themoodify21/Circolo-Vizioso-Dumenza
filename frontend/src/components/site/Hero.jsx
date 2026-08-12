@@ -10,18 +10,17 @@ export default function Hero() {
   const { t } = useLang();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const yImg = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
-  const scaleImg = useTransform(scrollYProgress, [0, 1], [1.08, 1.22]);
+  const yImg = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
+  const scaleImg = useTransform(scrollYProgress, [0, 1], [1, 1]);
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section id="top" ref={ref} className="relative h-[100svh] w-full overflow-hidden bg-mattone" data-testid="hero">
+    <section id="top" ref={ref} className="relative h-[100svh] w-full overflow-hidden bg-nero" data-testid="hero">
       {/* Parallax background image */}
       <motion.div style={{ y: yImg, scale: scaleImg }} className="absolute inset-0">
-        <img src={IMAGES.heroVillage} alt="" className="h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-mattone/25 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-nero/45 via-nero/10 to-nero/85" />
+        <img src={IMAGES.heroVillage} alt="" className="h-full w-full object-contain object-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-nero/40 via-transparent to-nero/70" />
         {/* amber glow like string lights */}
         <div className="absolute left-1/2 top-2/3 h-[60vh] w-[60vh] -translate-x-1/2 rounded-full bg-terracotta/25 blur-[120px]" />
       </motion.div>
