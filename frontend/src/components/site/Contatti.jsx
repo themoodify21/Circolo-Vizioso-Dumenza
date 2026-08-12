@@ -84,13 +84,6 @@ export default function Contatti() {
               >
                 {c.callReserve}
               </a>
-              <a
-                href={phoneTel()}
-                data-testid="contact-chiamaci-button"
-                className="rounded-full border border-mattone px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-mattone transition-colors duration-300 hover:bg-mattone hover:text-crema"
-              >
-                {c.chiamaci}
-              </a>
             </Reveal>
 
             <Reveal delay={0.22} className="mt-4">
