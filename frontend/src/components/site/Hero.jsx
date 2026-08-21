@@ -15,15 +15,10 @@ export default function Hero() {
 
   return (
     <section id="top" ref={ref} className="relative h-[100svh] w-full overflow-hidden bg-nero" data-testid="hero">
-      {/* Full-bleed: whole image (logo visible) with blurred fill on the sides */}
+      {/* Full-bleed background image (edge-to-edge) */}
       <motion.div style={{ y: yImg, scale: scaleImg }} className="absolute inset-0">
-        <img
-          src={IMAGES.heroVillage}
-          aria-hidden
-          className="absolute inset-0 h-full w-full scale-125 object-cover opacity-60 blur-2xl"
-        />
-        <img src={IMAGES.heroVillage} alt="" className="relative h-full w-full object-contain object-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-nero/35 via-transparent to-nero/65" />
+        <img src={IMAGES.heroVillage} alt="" className="h-full w-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-nero/30 via-transparent to-nero/60" />
         {/* amber glow like string lights */}
         <div className="absolute left-1/2 top-2/3 h-[60vh] w-[60vh] -translate-x-1/2 rounded-full bg-terracotta/25 blur-[120px]" />
       </motion.div>
