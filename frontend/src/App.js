@@ -26,8 +26,8 @@ function Home() {
         <Hero />
         <Marquee />
         <Storia />
-        <MenuSection />
         <Eventi />
+        <MenuSection />
         <Contatti />
       </main>
       <Footer />
