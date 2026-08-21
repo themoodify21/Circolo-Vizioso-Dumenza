@@ -9,7 +9,7 @@ import { IS_STATIC } from "../../lib/static";
 const links = [
   { id: "/storia", key: "story", route: true },
   { id: "#menu", key: "menu" },
-  { id: "#eventi", key: "events" },
+  { id: "/eventi", key: "events", route: true },
   { id: "#contatti", key: "contact" },
 ];
 

@@ -92,7 +92,11 @@ export default function Contatti() {
                 <a href={phoneTel()} className="font-medium text-mattone underline underline-offset-4 hover:text-terracotta">
                   {CONTACT.phoneDisplay}
                 </a>
-                {c.eventsNote.split("{phone}")[1]}
+                {c.eventsNote.split("{phone}")[1].split("{whatsapp}")[0]}
+                <a href={whatsappLink()} target="_blank" rel="noreferrer" className="font-medium text-mattone underline underline-offset-4 hover:text-terracotta">
+                  {CONTACT.whatsappDisplay}
+                </a>
+                {c.eventsNote.split("{whatsapp}")[1]}
               </p>
             </Reveal>
 
@@ -150,13 +154,10 @@ export default function Contatti() {
                             : "border-crema/25 text-crema/70 hover:border-crema/60"
                         }`}
                       >
-                        {c.form[z]} · {CAPACITY[z]}
+                        {c.form[z]}
                       </button>
                     ))}
                   </div>
-                  <p className="mt-2 text-[0.65rem] text-crema/45">
-                    {c.form.maxGuests.replace("{max}", maxGuests).replace("{area}", c.form[form.area])}
-                  </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <Field label={c.form.date} testid="res-date">

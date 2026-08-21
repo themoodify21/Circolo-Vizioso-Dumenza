@@ -1,0 +1,24 @@
+{
+  "summary": "Frontend-only validation of the batch changes on the public URL (?static=1). Verified: menu kicker label 'Menù' (IT) and EN/DE/FR variants; reservation area buttons with no capacity numbers and no hint line; contact events note with tel: landline + wa.me WhatsApp links; events CTA 'Vedi gli eventi' as a Link navigating to /eventi with 3 event posts and working back links; nav + mobile nav 'Eventi' routing to /eventi (react-router, no reload, scrollY 0) while 'Storia' -> /storia; homepage section order Storia -> Eventi -> Menu -> Contatti; regressions: reservation POST /api/reservations + WhatsApp popup to 393899074966, menu tabs cucina/pizza/vini (26/37/16 items), language switcher translating all 4 locales. All 4 locales verified for menu label, area labels, CTA text, nav label and events note phone/WhatsApp numbers. No console errors, no broken images on /eventi.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "/eventi header (desktop & mobile)", "issues": ["Decorative circular scroll-progress indicator overlaps the header intro paragraph text, slightly reducing legibility (cosmetic, low priority)"]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Contatti.jsx eventsNote parsing relies on both {phone} and {whatsapp} placeholders existing in every locale; a missing placeholder would throw on split()[1]. Consider a safe token-replace helper.",
+    "Guest capacity is still enforced only via the native input max + a toast; the POST /api/reservations payload is not server-validated for capacity (not part of this batch, informational)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "not tested (skipped per request)", "frontend": "100%"},
+  "seed_data_creation": "One reservation POST created with name 'TEST_QA' (2026-09-15, esterno) as part of regression testing.",
+  "should_call_test_agent_after_fix": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Correct testids: language switcher = 'language-switcher-button' + 'lang-option-{it|en|de|fr}'; menu items use data-testid=\"menu-item\" (not menu-item-N); menu tabs = 'menu-tab-{cucina|pizza|vini}'. Use ?static=1 to skip preloader. All batch changes verified passing in this iteration.",
+  "rca_of_the_issue": "No product defects found; the only initial test failures were wrong test selectors, corrected in the test scripts."
+}

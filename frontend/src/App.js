@@ -16,6 +16,7 @@ import Contatti from "@/components/site/Contatti";
 import Footer from "@/components/site/Footer";
 import WhatsAppButton from "@/components/site/WhatsAppButton";
 import StoryPage from "@/components/site/StoryPage";
+import EventsPage from "@/components/site/EventsPage";
 
 function Home() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/storia" element={<StoryPage />} />
+            <Route path="/eventi" element={<EventsPage />} />
           </Routes>
           <Toaster position="top-center" />
         </div>
