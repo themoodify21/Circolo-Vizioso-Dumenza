@@ -1,7 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Music, Mic2, Sparkles, PartyPopper } from "lucide-react";
 import { useLang } from "../../i18n/LanguageContext";
+import { EVENT_IMAGES } from "../../lib/config";
 import { Reveal, MaskLines } from "./Reveal";
-import FestaEvent from "./FestaEvent";
+import { CardStack } from "../ui/card-stack";
+
+const icons = [Music, Mic2, Sparkles, PartyPopper];
 
 export default function Eventi() {
   const { t } = useLang();
@@ -26,10 +31,36 @@ export default function Eventi() {
           </Reveal>
         </div>
 
-        {/* current event: poster + translated details */}
-        <div className="mt-16">
-          <FestaEvent tone="dark" />
+        {/* auto-scrolling events photo carousel */}
+        <Reveal delay={0.1} className="mt-16">
+          <CardStack items={EVENT_IMAGES} autoAdvance intervalMs={2600} pauseOnHover showDots />
+        </Reveal>
+
+        {/* event type blocks */}
+        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-crema/15 sm:grid-cols-2 lg:grid-cols-4">
+          {e.items.map((item, i) => {
+            const Icon = icons[i];
+            return (
+              <Reveal key={i} delay={i * 0.06}>
+                <div className="group h-full bg-mattone p-8 hover-warm hover:bg-terracotta" data-testid={`event-block-${i}`}>
+                  <Icon className="h-7 w-7 text-beige transition-colors group-hover:text-crema" strokeWidth={1.4} />
+                  <h3 className="mt-6 font-serif text-2xl">{item.t}</h3>
+                  <p className="mt-3 text-sm font-light leading-relaxed text-crema/70">{item.d}</p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
+
+        <Reveal delay={0.1} className="mt-12">
+          <Link
+            to="/eventi"
+            data-testid="events-cta"
+            className="inline-block rounded-full border border-crema/50 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-crema transition-colors duration-300 hover:bg-crema hover:text-mattone"
+          >
+            {e.cta}
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
