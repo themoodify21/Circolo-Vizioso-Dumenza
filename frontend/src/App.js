@@ -7,7 +7,6 @@ import useSmoothScroll from "@/hooks/useSmoothScroll";
 import Cursor from "@/components/site/Cursor";
 import Preloader from "@/components/site/Preloader";
 import Nav from "@/components/site/Nav";
-import Hero from "@/components/site/Hero";
 import Marquee from "@/components/site/Marquee";
 import Storia from "@/components/site/Storia";
 import MenuSection from "@/components/site/MenuSection";
@@ -23,8 +22,7 @@ function Home() {
     <>
       <Preloader />
       <Nav />
-      <main>
-        <Hero />
+      <main className="pt-20 sm:pt-24">
         <Marquee />
         <Storia />
         <Eventi />
