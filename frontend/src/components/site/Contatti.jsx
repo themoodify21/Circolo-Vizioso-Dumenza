@@ -12,7 +12,6 @@ export default function Contatti() {
   const { t } = useLang();
   const c = t.contact;
   const [form, setForm] = useState({ name: "", guests: "2", area: "interno", date: "", time: "", note: "" });
-  const [loading, setLoading] = useState(false);
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
   const maxGuests = CAPACITY[form.area];
@@ -26,7 +25,7 @@ export default function Contatti() {
       .replace("{time}", form.time || "-")
       .replace("{note}", form.note || "-");
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
     if (!form.name || !form.date || !form.time) {
       toast.error("Nome, data e ora sono richiesti / Name, date & time required");
@@ -38,17 +37,17 @@ export default function Contatti() {
       );
       return;
     }
-    setLoading(true);
     const msg = buildMessage();
-    try {
-      await axios.post(`${API}/reservations`, { ...form, guests: Number(form.guests) || 0, message: msg });
-    } catch (err) {
-      // Non-blocking: WhatsApp is the primary channel.
-    } finally {
-      setLoading(false);
-      window.open(whatsappLink(msg), "_blank");
-      toast.success("WhatsApp ✓");
-    }
+    // Open WhatsApp synchronously within the click gesture so the browser
+    // never blocks the popup (this is what delivers the reservation).
+    const wa = whatsappLink(msg);
+    const win = window.open(wa, "_blank", "noopener,noreferrer");
+    if (!win) window.location.href = wa; // fallback if popup blocked
+    // Log the request to the backend in the background (non-blocking).
+    axios
+      .post(`${API}/reservations`, { ...form, guests: Number(form.guests) || 0, message: msg })
+      .catch(() => {});
+    toast.success("WhatsApp ✓");
   };
 
   return (
@@ -172,9 +171,8 @@ export default function Contatti() {
                 </Field>
                 <button
                   type="submit"
-                  disabled={loading}
                   data-testid="reservation-submit"
-                  className="w-full rounded-full bg-terracotta py-4 text-xs font-semibold uppercase tracking-[0.2em] text-crema transition-colors duration-300 hover:bg-mattone disabled:opacity-60"
+                  className="w-full rounded-full bg-terracotta py-4 text-xs font-semibold uppercase tracking-[0.2em] text-crema transition-colors duration-300 hover:bg-mattone"
                 >
                   {c.form.send}
                 </button>
