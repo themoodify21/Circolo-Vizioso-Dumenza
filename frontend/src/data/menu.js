@@ -46,7 +46,7 @@ export const cucina = [
   {
     section: "Dolci",
     items: [
-      { n: "Tortino cuore morbido al cioccolato", d: "", p: "6,00", star: true },
+      { n: "Tortino con cuore morbido al cioccolato", d: "", p: "6,00", star: true },
       { n: "Tartufo bianco o nero", d: "", p: "5,00", star: true },
       { n: "Tiramisù della casa", d: "", p: "6,00", star: true },
       { n: "Crema Catalana", d: "", p: "6,00", star: true },
@@ -83,13 +83,13 @@ export const pizza = [
       { n: "Prosciutto e funghi", d: "Pomodoro, mozzarella, prosciutto cotto e funghi", p: "8,00", star: true },
       { n: "Tonno e cipolle", d: "Pomodoro, mozzarella, tonno e cipolle", p: "8,50", star: true },
       { n: "Speck e zola", d: "Pomodoro, mozzarella, speck e zola", p: "8,50", star: true },
-      { n: "Capricciosa", d: "Pomodoro, mozzarella, cotto, funghi, carciofi e olive", p: "9,50", star: true },
+      { n: "Capricciosa", d: "Pomodoro, mozzarella, prosciutto cotto, funghi, carciofi e olive nere", p: "9,50", star: true },
       { n: "Vegetariana", d: "Pomodoro, mozzarella, zucchine, melanzane, peperoni", p: "9,00", star: true },
       { n: "Prosciutto crudo", d: "Pomodoro, mozzarella e prosciutto crudo", p: "9,00", star: true },
       { n: "Würstel e patatine", d: "Pomodoro, mozzarella, würstel e patatine", p: "8,50", star: true },
       { n: "Napoli", d: "Pomodoro, mozzarella e acciughe", p: "8,00", star: true },
       { n: "Quattro formaggi", d: "Mozzarella, taleggio, gorgonzola e brie", p: "9,00", star: true },
-      { n: "Romana", d: "Pomodoro, mozzarella, olive, acciughe e capperi", p: "8,50", star: true },
+      { n: "Romana", d: "Pomodoro, mozzarella, olive nere, acciughe e capperi", p: "8,50", star: true },
       { n: "Primavera", d: "Pomodoro, mozzarella, rucola e pomodorini", p: "9,00", star: true },
     ],
   },
@@ -98,7 +98,7 @@ export const pizza = [
     items: [
       { n: "Diavola", d: "Pomodoro, mozzarella e salame piccante", p: "8,00", star: true },
       { n: "Inferno", d: "Pomodoro, mozzarella, salame piccante, zola, cipolle e peperoncino", p: "11,00", star: true },
-      { n: "Tre Porcellini", d: "Pomodoro, mozzarella, cotto, salsiccia e salame piccante", p: "10,00", star: true },
+      { n: "Tre Porcellini", d: "Pomodoro, mozzarella, prosciutto cotto, salsiccia e salame piccante", p: "10,00", star: true },
       { n: "San Luca", d: "Pomodoro, mozzarella, nduja, cipolle e olive nere", p: "9,00", star: true },
     ],
   },
@@ -106,14 +106,14 @@ export const pizza = [
     section: "I Calzoni",
     items: [
       { n: "Calzone liscio", d: "Pomodoro, mozzarella e prosciutto cotto", p: "7,00", star: true },
-      { n: "Calzone farcito", d: "Pomodoro, mozzarella, cotto, funghi e carciofi", p: "8,50", star: true },
-      { n: "Calzone a scelta", d: "Scegli la pizza che preferisci in stile calzone", p: "—" },
+      { n: "Calzone farcito", d: "Pomodoro, mozzarella, prosciutto cotto, funghi e carciofi", p: "8,50", star: true },
+      { n: "Calzone a scelta", d: "Scegli la pizza che preferisci e richiedila in stile calzone", p: "—" },
     ],
   },
   {
     section: "Le Focacce",
     items: [
-      { n: "Cunzata", d: "Rucola, tonno, acciughe, pomodorini secchi, capperi, olive e bufala", p: "12,00", star: true },
+      { n: "Cunzata", d: "Rucola, tonno, acciughe, pomodorini secchi, capperi, olive nere e bufala", p: "12,00", star: true },
       { n: "Golosa", d: "Prosciutto crudo, pomodorini, rucola e grana", p: "10,00", star: true },
       { n: "Mortazza", d: "Mortadella, crema di burrata e granella di pistacchio", p: "12,00", star: true },
       { n: "Nutella", d: "Nutella e zucchero a velo", p: "6,50", star: true },
@@ -160,8 +160,8 @@ export const vini = [
     section: "Vini alla Spina",
     wine: true,
     items: [
-      { n: "Bianco frizzante", bottle: "16,00 / L", glass: "2,50" },
-      { n: "Rosso Merlot", bottle: "16,00 / L", glass: "2,50" },
+      { n: "Vino Bianco frizzante", bottle: "16,00 / L", glass: "2,50" },
+      { n: "Vino Rosso Merlot", bottle: "16,00 / L", glass: "2,50" },
     ],
   },
 ];

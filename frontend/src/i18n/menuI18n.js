@@ -22,7 +22,7 @@ export const SECTION_LABELS = {
 
 // Full-description overrides for sentence-style descriptions.
 const OVERRIDES = {
-  "Scegli la pizza che preferisci in stile calzone": {
+  "Scegli la pizza che preferisci e richiedila in stile calzone": {
     en: "Choose your favourite pizza, calzone style",
     de: "Wähle deine Lieblingspizza im Calzone-Stil",
     fr: "Choisissez votre pizza préférée, façon calzone",
